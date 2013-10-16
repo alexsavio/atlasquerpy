@@ -3,8 +3,6 @@ import nibabel as nib
 from nipy.io.nifti_ref import nifti2nipy
 from nipy.core.reference.array_coords import ArrayCoordMap
 
-from IPython.core.debugger import Tracer; debug_here = Tracer()
-
 def voxcoord_to_mm(cm, i, j, k):
     '''
     Parameters

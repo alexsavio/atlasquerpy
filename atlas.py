@@ -7,7 +7,6 @@ from coord_transform import voxcoord_to_mm, mm_to_voxcoord
 from coord_transform import get_3D_coordmap, get_coordmap_array
 from image_info import is_valid_coordinate, are_compatible_imgs
 
-from IPython.core.debugger import Tracer; debug_here = Tracer()
 class Atlas:
     '''
     Stores atlases data
