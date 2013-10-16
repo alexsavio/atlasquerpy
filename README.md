@@ -21,7 +21,7 @@ as in my Ubuntu configuration.
 
 
 Atlasquerpy is slower than atlasquery. It depends on the number of voxels in the
-mask, where the original atlasquery depended mostly on the resolution of it.
+mask, where the original atlasquery depended mostly on its voxel resolution.
 
 Dependencies
 ------------
