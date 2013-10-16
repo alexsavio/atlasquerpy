@@ -25,12 +25,8 @@ mask, where the original atlasquery depended mostly on its voxel resolution.
 
 Dependencies
 ------------
-Atlasquerpy makes use of some Python libraries:
-Numpy
-NiBabel
-Nipy
-XML
-argparse
+Atlasquerpy makes use of the following Python libraries:
+Numpy, NiBabel, Nipy, XML, argparse
 
 References
 ----------
