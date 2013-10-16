@@ -1,4 +1,4 @@
-import nipy
+
 import nibabel as nib
 from nipy.io.nifti_ref import nifti2nipy
 from nipy.core.reference.array_coords import ArrayCoordMap

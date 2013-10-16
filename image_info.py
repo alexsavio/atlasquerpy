@@ -1,5 +1,3 @@
-import nipy
-import nibabel as nib
 
 def is_valid_coordinate(img, i, j, k):
     '''
