@@ -7,6 +7,7 @@ from coord_transform import voxcoord_to_mm, mm_to_voxcoord
 from coord_transform import get_3D_coordmap, get_coordmap_array
 from image_info import is_valid_coordinate, are_compatible_imgs
 
+
 class Atlas:
     '''
     Stores atlases data
@@ -201,7 +202,7 @@ class StatsAtlas (Atlas):
         prob_img = nifti2nipy(self.image)
         prob_vol = prob_img[:, :, :, struct_idx]
 
-        masked_probs = 0.0
+        masked_probs = 0.
 
         mask_cm = get_3D_coordmap(mask_img)
         prob_cm = get_3D_coordmap(prob_img)
@@ -246,7 +247,7 @@ class StatsAtlas (Atlas):
         return masked_probs/mask_sum if mask_sum > 0 else 0
 
 
-    def get_roi_overlap(self, mask_img, struct_idx, bin_prob=False):
+    def get_roi_overlap(self, mask_img, struct_idx):
         '''
         Calculates the percentage overlap of mask_img and the ROI given by
         struct_idx
@@ -273,10 +274,7 @@ class StatsAtlas (Atlas):
 
         prob_vol = self.image.get_data()[:, :, :, struct_idx]
 
-        if bin_prob:
-            prob_sum = np.sum(prob_vol>0)
-        else:
-            prob_sum = np.sum(prob_vol)
+        prob_sum = np.sum(prob_vol)
 
         masked_probs = self._get_roi_mask_intersect(mask_img, struct_idx)
 
@@ -336,7 +334,9 @@ class StatsAtlas (Atlas):
             if count:
                 text += ', '
 
-            text += str(round(stat, self.precision))
+            prec10 = 10**self.precision
+            stat = round(stat, prec10)
+            text += "%.*f" % (prec10, stat)
 
             if self.stats_name:
                 text += self.stats_name + '='

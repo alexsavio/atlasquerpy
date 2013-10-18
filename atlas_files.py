@@ -219,6 +219,7 @@ class AtlasFiles:
                                         lower = 0
                                         upper = 100
                                         precision = 0
+
                                     else:
                                         atlas_type = 'probs'
 

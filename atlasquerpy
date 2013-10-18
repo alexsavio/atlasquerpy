@@ -31,6 +31,10 @@ def set_parser():
     parser.add_argument('-c', '--coords', dest='coords', required=False, 
                         help='''specify coordinates of the point of interest 
                              (as mm coordinates): <X>,<Y>,<Z>''')
+    parser.add_argument('-p', '--precision', dest='precision', required=False, 
+                        default=4,
+                        help='''specify the precision of the floats that will 
+                             be printed when using -m''')
     parser.add_argument('--dumpatlases', dest='dumpatlases', required=False, 
                         action='store_true', default=False,
                         help='Dump a list of the available atlases')
@@ -51,6 +55,7 @@ def main(argv=None):
        return -1
 
     dumpatlases = args.dumpatlases
+    precision = args.precision
     atlas_name = args.atlas
     mask_file = args.mask
     verbose = args.verbose
@@ -95,7 +100,8 @@ def main(argv=None):
                 print(str(li))
 
             if value > 0:
-                print(struct_name + ':' + str(value))
+                val_text = "%.*f" % (precision, round(value, precision))
+                print(struct_name + ':' + val_text)
 
     elif coords != '':
         try:
