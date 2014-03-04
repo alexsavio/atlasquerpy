@@ -1,9 +1,9 @@
 atlasquerpy
 ===========
 
-FSL atlasquery in Python
+Brain atlas query in Python.
 
-This is a Python version of the FMRIB software library (FSL) atlasquery tool.
+This is a Python version of other atlas query tools available elsewhere.
 
 About FSL atlasquery
 --------------------
@@ -20,8 +20,9 @@ the ass as it uses versions of Qt, Qwt and VTK libraries which are not the same
 as in my Ubuntu configuration.
 
 
-Atlasquerpy is slower than atlasquery. It depends on the number of voxels in the
-mask, where the original atlasquery depended mostly on its voxel resolution.
+Atlasquerpy is slower than atlasquery, but has more options. 
+It depends on the number of voxels in the mask, where the original 
+atlasquery depended mostly on its voxel resolution.
 
 Dependencies
 ------------
